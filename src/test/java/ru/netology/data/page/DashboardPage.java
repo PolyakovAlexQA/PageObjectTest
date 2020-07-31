@@ -1,11 +1,12 @@
 package ru.netology.data.page;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.Data;
 import lombok.val;
 import org.openqa.selenium.support.FindBy;
-
 import static com.codeborne.selenide.Condition.*;
 
+@Data
 public class DashboardPage {
     @FindBy(css="[data-test-id=dashboard]")
     private SelenideElement dashboardField;

@@ -1,12 +1,15 @@
 package ru.netology.data.page;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.Data;
+import lombok.Value;
 import org.openqa.selenium.support.FindBy;
 import ru.netology.data.data.DataCard;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 
+@Data
 public class MoneyPage {
     @FindBy(css = "[data-test-id=dashboard]")
     private SelenideElement dashboardMoneyField;
