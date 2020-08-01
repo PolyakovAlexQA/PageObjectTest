@@ -2,7 +2,6 @@ package ru.netology.data.page;
 
 import com.codeborne.selenide.SelenideElement;
 import lombok.Data;
-import lombok.Value;
 import org.openqa.selenium.support.FindBy;
 import ru.netology.data.data.DataCard;
 
@@ -29,7 +28,7 @@ public class MoneyPage {
         dashboardMoneyField.shouldHave(visible, text("Личный кабинет")); // видость элемента
     }
 
-    public void setAmount(int amount){
+    public void setAmount(int amount) {
         amountField.setValue(Integer.toString(amount));
     }
 
@@ -38,9 +37,16 @@ public class MoneyPage {
         fromField.setValue(card.getSecondNumber());
     }
 
-    public DashboardPage endMoneyPage(int amount,DataCard.NumberCard card){
+    public DashboardPage endMoneyPage(int amount, DataCard.NumberCard card) {
         amountField.setValue(String.valueOf((amount)));
         fromField.setValue(card.getFirstNumber());
+        buttonField.click();
+
+        return new DashboardPage(); // возвращаем страницу Dashboard после ввода кода
+    }
+
+    public DashboardPage endMoneyPage2(int amount, DataCard.NumberCard card) {
+        amountField.setValue(String.valueOf((amount)));
         fromField.setValue(card.getSecondNumber());
         buttonField.click();
 

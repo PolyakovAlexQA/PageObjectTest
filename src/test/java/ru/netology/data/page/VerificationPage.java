@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 // класс который возвращает страницу варификации
 
 public class VerificationPage {
-    private SelenideElement codeField = $("[data-test-id=code]input]"); // сохраняем элементы и переводим в приватный доступ
+    private SelenideElement codeField = $("[data-test-id=code] input"); // сохраняем элементы и переводим в приватный доступ
     private SelenideElement verifyButton = $("[data-test-id=action-verify]");
 
     public VerificationPage() {
