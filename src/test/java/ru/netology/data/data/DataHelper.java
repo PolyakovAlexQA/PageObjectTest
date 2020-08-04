@@ -26,6 +26,5 @@ public class DataHelper {
         return new VerifyCode("12345");
     }
 
-
 }
 

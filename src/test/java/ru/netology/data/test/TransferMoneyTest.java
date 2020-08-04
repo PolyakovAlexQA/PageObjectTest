@@ -12,11 +12,8 @@ public class TransferMoneyTest {
 
 
 
-
-
-
 @Test
-    void validLogin(){
+    void validLogin() {
         open("http://localhost:9999");
         val loginPage = new LoginPage();
         val authInfo = DataHelper.getAuthInfo();
@@ -24,6 +21,5 @@ public class TransferMoneyTest {
         val verificationCode = DataHelper.getVerifyCode(authInfo);
         verificationPage.validVerify(verificationCode);
     }
-
 }
 

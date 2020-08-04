@@ -5,15 +5,13 @@ import lombok.Data;
 import lombok.val;
 import org.openqa.selenium.support.FindBy;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
 
 @Data
 public class DashboardPage {
-    @FindBy(css="[data-test-id=dashboard]")
-    private SelenideElement dashboardField;
-    @FindBy(css = "[data-test-id=92df3f1c-a033-48e6-8390-206f6b1f56c0]")
-    private SelenideElement cardOne;
-    @FindBy(css = "[data-test-id=0f3f5c2a-249e-4c3d-8287-09f7a039391d]")
-    private SelenideElement cardTwo;
+    private SelenideElement dashboardField= $("[data-test-id=dashboard]");
+    private SelenideElement cardOne= $( "[data-test-id='92df3f1c-a033-48e6-8390-206f6b1f56c0']");
+    private SelenideElement cardTwo=$("[data-test-id='0f3f5c2a-249e-4c3d-8287-09f7a039391d']");
 
 
     private int balanceFirstCard = getFirstCardBalance();
