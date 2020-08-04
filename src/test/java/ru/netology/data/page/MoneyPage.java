@@ -12,12 +12,11 @@ import static com.codeborne.selenide.Selenide.$;
 @Data
 public class MoneyPage {
     private SelenideElement dashboardMoneyField = $("[data-test-id=dashboard]");
-    private SelenideElement amountField =$("[data-test-id=amount]input");
-    private SelenideElement fromField=$("[data-test-id=from]input");
-    private SelenideElement toField=$("[data-test-id=to]input");
-    private SelenideElement buttonField=$("[data-test-id=action-transfer]");
-    private SelenideElement cancelField=$( "[data-test-id=action-cancel]");
-
+    private SelenideElement amountField = $("[data-test-id=amount]input");
+    private SelenideElement fromField = $("[data-test-id=from]input");
+    private SelenideElement toField = $("[data-test-id=to]input");
+    private SelenideElement buttonField = $("[data-test-id=action-transfer]");
+    private SelenideElement cancelField = $("[data-test-id=action-cancel]");
 
 
     public MoneyPage() {
@@ -41,6 +40,5 @@ public class MoneyPage {
         return new DashboardPage(); // возвращаем страницу Dashboard после ввода кода
     }
 
-
-    }
+}
 

@@ -5,14 +5,11 @@ import org.junit.jupiter.api.Test;
 import ru.netology.data.data.DataHelper;
 import ru.netology.data.page.LoginPage;
 
-
 import static com.codeborne.selenide.Selenide.open;
 
 public class TransferMoneyTest {
 
-
-
-@Test
+    @Test
     void validLogin() {
         open("http://localhost:9999");
         val loginPage = new LoginPage();

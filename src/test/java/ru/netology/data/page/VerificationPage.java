@@ -1,4 +1,5 @@
 package ru.netology.data.page;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.data.DataHelper;
@@ -15,9 +16,10 @@ public class VerificationPage {
         codeField.shouldBe(Condition.visible); // проверка на то что поле должно быть видимым, если поле не загрузится , тесты упадут
 
     }
-    public DashboardPage validVerify (DataHelper.VerifyCode code){
-    codeField.setValue(code.getCode());
-    verifyButton.click();
-     return new DashboardPage(); // возвращаем страницу Dashboard после ввода кода
-}
+
+    public DashboardPage validVerify(DataHelper.VerifyCode code) {
+        codeField.setValue(code.getCode());
+        verifyButton.click();
+        return new DashboardPage(); // возвращаем страницу Dashboard после ввода кода
+    }
 }
