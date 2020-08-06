@@ -17,18 +17,14 @@ public class MoneyPage {
     private SelenideElement buttonField = $("[data-test-id=action-transfer]");
     private SelenideElement cancelField = $("[data-test-id=action-cancel]");
 
-
     public MoneyPage() {
         dashboardMoneyField.shouldHave(visible, text("Личный кабинет")); // видость элемента
     }
-
 
     public void endMoneyPage(int amount, String cardNumber) {
         amountField.setValue(String.valueOf((amount)));
         fromField.setValue(cardNumber);
         buttonField.click();
 
-
     }
-
 }
