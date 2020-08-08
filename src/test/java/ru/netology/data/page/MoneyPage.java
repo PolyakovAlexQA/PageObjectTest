@@ -16,6 +16,7 @@ public class MoneyPage {
     private SelenideElement toField = $("[data-test-id=to] input");
     private SelenideElement buttonField = $("[data-test-id=action-transfer]");
     private SelenideElement cancelField = $("[data-test-id=action-cancel]");
+    private SelenideElement titleError = $("[class='notification__title']");
 
     public MoneyPage() {
         dashboardMoneyField.shouldHave(visible, text("Личный кабинет")); // видость элемента
