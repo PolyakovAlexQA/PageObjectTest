@@ -41,8 +41,26 @@ public class TransferMoneyTest {
     }
 
     @Test
-    void shouldSuccessfulTransferFromFirstToSecond() {
-        int amount = 1000;
+    void shouldBalance0TransferFromSecondToFirst() {
+        int amount = 0;
+        open("http://localhost:9999");
+        val loginPage = new LoginPage();
+        val authInfo = getAuthInfo();
+        val verificationPage = loginPage.validLogin(authInfo);
+        val verificationCode = getVerifyCode(authInfo);
+        val dashboardPage = verificationPage.validVerify(verificationCode);
+        val dataCard = getNumberCard();
+        val balanceFirst = dashboardPage.getFirstCardBalance();
+        val balanceSecond = dashboardPage.getSecondCardBalance();
+        val moneyPage = dashboardPage.MoveCardOne();
+        moneyPage.endMoneyPage(amount, dataCard.getSecondNumber());
+        assertEquals(balanceFirst + amount, dashboardPage.getFirstCardBalance());
+        assertEquals(balanceSecond - amount, dashboardPage.getSecondCardBalance());
+    }
+
+    @Test
+    void shouldMoreBalanceTransferFromFirstToSecond() {
+        int amount = 121000;
         open("http://localhost:9999");
         val loginPage = new LoginPage();
         val authInfo = getAuthInfo();
@@ -59,8 +77,26 @@ public class TransferMoneyTest {
     }
 
     @Test
-    void shouldBalance0TransferFromSecondToFirst() {
-        int amount = 0;
+    void shouldNegativeBalanceFirstCard() {
+        int amount = 50000;
+        open("http://localhost:9999");
+        val loginPage = new LoginPage();
+        val authInfo = getAuthInfo();
+        val verificationPage = loginPage.validLogin(authInfo);
+        val verificationCode = getVerifyCode(authInfo);
+        val dashboardPage = verificationPage.validVerify(verificationCode);
+        val dataCard = getNumberCard();
+        val balanceFirst = dashboardPage.getFirstCardBalance();
+        val balanceSecond = dashboardPage.getSecondCardBalance();
+        val moneyPage = dashboardPage.MoveCardTwo();
+        moneyPage.endMoneyPage(amount, dataCard.getFirstNumber());
+        assertEquals(balanceFirst - amount, dashboardPage.getFirstCardBalance());
+        assertEquals(balanceSecond + amount, dashboardPage.getSecondCardBalance());
+    }
+
+    @Test
+    void shouldNegativeBalanceSecondCard() {
+        int amount = 200000;
         open("http://localhost:9999");
         val loginPage = new LoginPage();
         val authInfo = getAuthInfo();
